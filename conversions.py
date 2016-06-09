@@ -1,7 +1,7 @@
 digits = [chr(i) for i in range(48,58)]+[chr(i) for i in range(65,91)]+[chr(i) for i in range(97,123)]
 
-def tobase(number,base,precision=10):
-
+def tobase(number,base,precision=20):
+    
     global digits
 
     base = int(base)
@@ -27,16 +27,16 @@ def tobase(number,base,precision=10):
 
     if number == 0:
 	h_int = '0'
-
+ 
     if number < 0:
         h_int = '-'+h_int
-
+ 
     return h_int+'.'+h_frac
-
+    
 def todecimal(h,base):
 
     global digits
-
+    
     if h[0]=='-':
         sign = -1.
         h = h[1:]
