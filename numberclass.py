@@ -1,4 +1,4 @@
-import conversions
+from conversions import *
 
 class num_base:
 
@@ -8,8 +8,12 @@ class num_base:
 	self.base = base
 
 
-    def convert(self,new_base,precision=5):
-	number = conversions.todecimal(self.value,self.base)
-	value = conversions.tobase(number,new_base,precision)
+    def convert(self,new_base,precision=10):
+	number = todecimal(self.value,self.base)
+	value = tobase(number,new_base,precision)
 	self.value = value
 	self.base = new_base
+
+    def __add__(self,other):
+        res = todecimal(self.value,self.base)+todecimal(other.value,other.base)
+        return num_base(tobase(res,self.base),self.base)
